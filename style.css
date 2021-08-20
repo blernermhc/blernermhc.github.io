@@ -1,0 +1,27 @@
+BODY {
+    font-family: 'Verdana', sans-serif;
+    font-size: 10pt;
+    margin: 72pt;
+    background-color: "#ffffff";
+}
+
+.date {padding-top:10px}
+
+.author {padding-top:15px}
+
+.header {
+    height: 232pt; 
+}
+
+.CourseTitle {
+    line-height: 29pt; 
+    font-family: 'Verdana-Bold', 'Verdana', sans-serif; 
+    font-size: 24pt;
+    font-weight: bold; 
+}
+
+.navbar {
+    padding-bottom: 5pt;
+    text-align: right;
+}
+
