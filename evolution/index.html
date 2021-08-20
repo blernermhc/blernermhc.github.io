@@ -1,0 +1,60 @@
+<TITLE>Barbara Lerner's Type Evolution Research</TITLE>
+<!-- Changed by: Barbara Lerner, 11-Sep-1997 -->
+
+<H1>Evolution of Persistent Types</H1>
+
+Persistent type
+evolution is a problem specific to the modification of types used to
+define persistent objects. In languages that support object
+persistence directly, such as Java, the
+storage representation 
+used for persistent objects is derived directly from the
+object's type representation. If a programmer modifies the structure
+of a persistent type, that modification affects both its
+representation in virtual memory and its representation in a
+persistent object base. If an object is written to an object base, and
+then the type representation used by that object is changed, it may no
+longer be possible to read the object from the persistent object base.
+
+My research addresses four broad problems of persistent type evolution: 
+<UL>
+  <LI> How can a system identify the changes a programmer makes to a
+       collection of types?  
+  <LI> After understanding the type changes, how can a system generate
+       a transformer that will update the persistent objects to comply with
+       the changed types? 
+  <LI> What are the limits of automated transformer generation and how can
+       the system support programmer-defined extensions to the generated
+       transformer? 
+  <LI> What mechanisms support transformation of persistent objects in the
+       most efficient and least obtrusive manner? 
+</UL>
+
+The following papers are available:
+<DL>
+  <DT> Barbara Staudt Lerner, "TESS:  Automated Support for the
+       Evolution of Persistent Types", in <cite>Proceedings of the
+       1997 Automated Software Engineering Conference (ASE'97)</cite>,
+       November 1997.
+       <DD><A HREF="http://www.mtholyoke.edu/~blerner/papers/ASEabstract.html">Abstract</A>
+       <DD><A HREF="http://www.mtholyoke.edu/~blerner/papers//ASEpaper.ps">Paper</A><P> 
+
+  <DT> Barbara Staudt Lerner, <I>A Model for Compound Type Changes Encountered
+       in Schema Evolution,</I> Technical Report 96-044, Computer Science
+       Department, University of Massachusetts at Amherst, June 1996.
+       <DD>To ftp the report, click 
+       <A HREF="ftp://ftp.cs.umass.edu/pub/techrept/techreport/1996/UM-CS-1996-044.ps">
+       UM-CS-1996-044</A><P> 
+
+  <DT> Barbara Staudt Lerner, <I>Type Evolution Support for Complex Type
+       Changes,</I> Technical Report 94-071, Computer Science
+       Department, University of Massachusetts at Amherst, 1994.       
+       <DD> To ftp the report, click 
+       <A HREF="ftp://ftp.cs.umass.edu/pub/techrept/techreport/1994/UM-CS-1994-071.ps">
+       UM-CS-1994-071</A>
+</DL>
+
+This work was supported in part
+by the Air Force Materiel Command, Rome Laboratory, and the Defense
+Advanced Research Projects Agency
+and in part by the National Science Foundation.

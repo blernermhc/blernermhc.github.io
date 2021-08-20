@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Capturing and Using Scientific Data Provenance</title>
+    <link rel="stylesheet" type="text/css" href="../research-style.css" >
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"> 
+  </head>
+
+  <body bgcolor="#FFFFFF" link="#0000FF" alink="#0000FF" vlink="#8800FF" text="#000000">
+
+<h1>Capturing and Using Scientific Data Provenance</h1>
+<table width="100%">
+<tr>
+<td width="33%">
+Barbara Lerner<br>
+Elizabeth Fong<br>
+Mount Holyoke College
+</td>
+<td width="33%">
+Emery Boose<br>
+Aaron Ellison<br>
+Harvard Forest
+</td>
+<td width="33%">
+Margo Seltzer<br>
+University of British Columbia
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr>
+<td width="33%">
+Thomas Pasquier<br>
+University of Bristol
+</td>
+<td width="33%">
+Joe Wonsil<br>
+Carthage College
+</td>
+<td width="33%">
+Orenna Brand<br>
+Columbia University
+</td>
+</tr>
+</table>
+
+<h2>Representing Provenance with a Graph</h2>
+
+<table>
+<tr>
+<td>
+<p>The data provenance that we collect is stored in a graph.  The
+  nodes of the graph represent either data or 
+processing steps.  Red edges connect the data to the steps that use it
+as input or produce it as output.  Blue edges connect processing steps
+directly to show control flow relationships.
+
+<p>While not shown in this visualization, the graph captures additional
+  information related to the scientific computation.    
+Data nodes capture the scientific data, including intermediate
+results produced during computation.  Nodes that represent processing
+steps capture the R source code that the step represents.</p>
+
+<p>The provenance graph snippet shown to the right was generated from
+  running a simple R 
+  script demonstrating some basic steps in processing sensor data for
+  general use. 
+  Focusing first on the yellow nodes, we see 2 steps:
+
+<ol>
+<li> Calibrate
+<li> Plot data
+</ol>
+
+<p>Each yellow node represents the execution of a function.  
+
+<p> The purple nodes represent data values that are being manipulated
+  by the script.  A processing node with an arrow pointing to a data node 
+  indicates that the data were output from the processing step.  For
+  example, the calibrate step returns the result of doing the
+  calibration.</p>
+
+</td>
+<td>
+<img src="figures/ddg-fragment.png" align="right" width="497"
+     height="551" alt="Provenance graph fragment">
+</td>
+</tr>
+</table>
+
+<p>Data input to functions shows how parameter bindings are done.  For
+example, the calibrate function has a parameter named <i>data</i>.  In
+the graph shown here, the argument passed in is <i>raw.data</i>.  The
+beige node represents the binding from the argument to the parameter,
+taking as input the argument and producing as output the parameter,
+which is then input to the function.
+</p>
+
+<p>The green nodes represent the start and finish of a chunk of
+related nodes.  In this example, they correspond to a complete
+function execution, including the parameter binding and the binding of
+a return value to the place where it is called.
+</p>
+
+<p>The graph representation is very general and can be used to describe
+data and control flow of programs written in many languages.  In
+  particular, we have written proof-of-concept tools that collected
+  provenance for Python and
+  for <a href="http://laser.cs.umass.edu/tools/littlejil.shtml">Little-JIL</a>. 
+
+In
+  addition to the tools that we have written, others can develop tools
+  that operate on these graphs.  We
+  provide <a href="https://github.com/ProvTools/provParseR">provParseR</a>
+  and <a href="https://github.com/ProvTools/provGraphR">provGraphR</a>, R packages that
+  provide an interface suitable to reading and examining provenance.
+
+<hr>
+
+<ul>
+<li> <a href="project_overview.html">Project overview</a>
+<li> <a href="tools.html">Tools that use provenance</a>
+<li> Representing provenance with a graph
+<li> <a href="RDataTracker.html">Collecting provenance from R scripts with
+    RDataTracker</a>
+<li> <a href="DDGExplorer.html">Viewing provenance with provViz</a>
+<li> <a href="publications.html">Papers and presentations</a>
+<li> <a href="software.html">Software Download</a>
+</ul>
+
+</body>
+</html>

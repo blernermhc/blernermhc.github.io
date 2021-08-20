@@ -1,0 +1,337 @@
+<HTML>
+<!--This file created 7/17/01 3:03 PM by Claris Home Page version 3.0-->
+<HEAD>
+   <TITLE>Notes on Lateral Dataflow</TITLE>
+   <META NAME=GENERATOR CONTENT="Claris Home Page 3.0">
+   <X-CLARIS-WINDOW TOP=68 BOTTOM=768 LEFT=8 RIGHT=538>
+   <X-CLARIS-TAGVIEW MODE=minimal>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<H1><CENTER>Notes on Lateral Dataflow</CENTER></H1>
+
+<H2><CENTER>Barbara Lerner</CENTER></H2>
+
+<H2><CENTER>July 13, 2001</CENTER></H2>
+
+<H2>Common uses for lateral dataflow</H2>
+
+<OL>
+   <LI>Synchronization between steps running in parallel</LI>
+   
+   <LI>Shared data between steps, especially useful between
+   agents</LI>
+   
+   <LI>Combining data from steps running in parallel</LI>
+   
+   <LI>Producer/consumer scenarios involving the sending of streams
+   of data</LI>
+</OL>
+
+<H2>Why add lateral dataflow to Little-JIL?</H2>
+
+<UL>
+   <LI>To simplify communication between steps that may run in
+   parallel</LI>
+   
+   <LI>To allow reasoning over the dataflow (which can't be done if
+   it is buried in the agent's Java code)</LI>
+</UL>
+
+<H2>Sandy's proposal</H2>
+
+<P>Add new badges to the interface:</P>
+
+<UL>
+   <LI>read - when step is started read a tuple matching a pattern
+   from tuple space.</LI>
+   
+   <LI>in - like read, but removes the tuple from tuple space</LI>
+   
+   <LI>out - on complete, write a tuple as defined by agent to tuple
+   space</LI>
+</UL>
+
+<P>If a step terminates, any tuple it has "in" is put back. </P>
+
+<P>Question: if a substep of a terminated step completed, are its
+"in"s and "write"s undone? What if another step has read or "in"ed
+something written?</P>
+
+<P>Question: if a read or in fails to match, does it wait or is an
+exception thrown?</P>
+
+<P>How would this get used?</P>
+
+<OL>
+   <LI>Receiver of data could have a sequential loop or parallelism
+   to get data using read/in and process it.</LI>
+   
+   <LI>Sender of data could have a step that produced one data item
+   and wrote it and then repeated that step. Or it could have two
+   parallel steps, one continuously producing data, the other writing
+   one data item and recursing (just the writing step). All
+   synchronization between these two steps would be done by the
+   agent.</LI>
+</OL>
+
+<P>Agents are responsible for using tuples and patterns correctly to
+get the effect they want:</P>
+
+<UL>
+   <LI>Need to agree on a naming scheme and tuple contents</LI>
+   
+   <LI>To implement streams, need to include a sequence number in
+   each tuple.</LI>
+</UL>
+
+<P>Advantages:</P>
+
+<UL>
+   <LI>Powerful due to its generality</LI>
+</UL>
+
+<P>Problems:</P>
+
+<UL>
+   <LI>Most work is done by the agents</LI>
+   
+   <LI>Not clear that this facilitates annalysis. Since Little-JIL
+   does not know what is in the tuples, how can it match up senders
+   and receivers? Without this knowledge, what extra analysis can be
+   accopmlished?</LI>
+</UL>
+
+<H2>How do other languages support this?</H2>
+
+<H3>Java:</H3>
+
+<UL>
+   <LI>Syncrhonization and shared data between threads in different
+   address spaces is accomplished with rmi. Use shared data directly
+   if in same address space.</LI>
+   
+   <LI>Producer/consumer solved with streams (whether in same address
+   space or not)</LI>
+</UL>
+
+<H3>Linda:</H3>
+
+<P>This is the same as Sandy's proposal</P>
+
+<H3>Jada:</H3>
+
+<P>Basically, the Linda model but adds a notion of TupleCollection.
+TupleCollection essentially implements streams. Create a
+TupleCollection in the tuple space. Then add to or consume from a
+collection behaves like a stream, but the programmer doesn't need to
+manage serial numbers.</P>
+
+<H3>Manifold:</H3>
+
+<P>Events are used for synchronization or shared data. They are
+broadcast to whoever wants to listen.</P>
+
+<P>Streams are set up between producers and consumers. Consume waits
+if stream becomes empty. Streams are order-preserving. Multiple
+streams can be connected to a port. When writing to a port, data is
+replicated on all streams. When reading from a port, the streams are
+merged.</P>
+
+<P>Connections between ports are explicitly established by naming
+both ends of a stream.</P>
+
+<P>They support 4 types of streams:</P>
+
+<UL>
+   <LI>BB: Disconnect stream from both ends whenever either end
+   disconnects</LI>
+   
+   <LI>BK: Disconnect stream from producer when consumer disconnects;
+   don't automatically disconnect consumer</LI>
+   
+   <LI>KB: Disconnnect consumer when producer disconnects; do not
+   automatically disconnect producer</LI>
+   
+   <LI>KK: Automatically disconnect neither.</LI>
+</UL>
+
+<H3>STL++</H3>
+
+<P>Processes declare ports. A port has a name (actually may have more
+than one name) and a type. Type information includes:</P>
+
+<UL>
+   <LI>Communication paradigm:
+   
+   <UL>
+      <LI>point-to-point streams (1:1, 1:n, n:1, m:n)</LI>
+      
+      <LI>group broadcast (any process in group can send or
+      receive)</LI>
+      
+      <LI>blackboard</LI>
+   </UL>
+   </LI>
+   
+   <LI>Synchronous vs. ashynchronous</LI>
+   
+   <LI>in, out, inout</LI>
+   
+   <LI>Number of connections allowed (1 to infinity)</LI>
+   
+   <LI>Number of data items to be passed (1 to infinity)</LI>
+   
+   <LI>Type of data to be passed</LI>
+</UL>
+
+<P>They only support limited combinations:</P>
+
+<UL>
+   <LI>Blackboard, asynchronous, inout</LI>
+   
+   <LI>Group, asynchronous inout</LI>
+   
+   <LI>Stream, synchronous or asynchronous, in or out</LI>
+</UL>
+
+<P>Runtime system matches ports between processes using these
+rules:</P>
+
+<UL>
+   <LI>Ports must have the same name</LI>
+   
+   <LI>Belong to the same level of abstraction???</LI>
+   
+   <LI>Belong to different objects</LI>
+   
+   <LI>Types must be compatible:
+   
+   <UL>
+      <LI>Same communication paradigm</LI>
+      
+      <LI>Same synchronization</LI>
+      
+      <LI>Match in to out, or both may be inout</LI>
+      
+      <LI>Same data type to be passed</LI>
+   </UL>
+   </LI>
+</UL>
+
+<H2>Examples</H2>
+
+<P>Here are some examples of where lateral dataflow may be useful. In
+general, I believe we can live without lateral dataflow by simply
+having a sequential step where the sender of the data is the first
+step and the receiver is the second step and we pass the data up/down
+in the normal fashion. The main problems with this approach are that
+it may cause us to unnaturally over-specify the handling of the data,
+may make for awkward agent interfaces that need to start lots of
+steps. Also, it may cause problems with resource management since the
+sender and receiver are close together in the process tree. This may
+make it difficult to acquire and release resources in an ideal way,
+particularly if we want the sender to continue another activity using
+the same resources after sending the data. With lateral dataflow, the
+sender and receiver can be better separated making it easier to do
+resource management correctly.</P>
+
+<H3>Combining output values produced in parallel</H3>
+
+<P>The first is a voting process. Voters vote in parallel with an
+agent carrying out a tallying step. Lateral dataflow is used to
+communicate an individual voter's vote to the tallier.</P>
+
+<P><IMG SRC="vote.gif" X-CLARIS-USEIMAGEWIDTH X-CLARIS-USEIMAGEHEIGHT ALIGN=bottom></P>
+
+<P>A similar process could support bidding where the bidders use
+lateral dataflow to send a bid to the auctioneer. In this case, the
+auctioneer keeps track of the high bid and high bidder as the bids
+come in.</P>
+
+<P>In both of these case, the job of the receiver of the parallel
+dataflow is to combine the outputs of the steps being run in
+parallel. In general, we need a solution to the problem of races in
+writing output values when we have cardinality &gt; 1 on a parallel
+substep. Using lateral dataflow may be one way to approach this
+problem.</P>
+
+<H3>Streaming examples</H3>
+
+<P>In this scenario, we have two steps running in parallel. One
+produces data that the other consumes. We want all data produced to
+be consumed in the order produced. An interesting question here is
+whether we want to use process code to define how the receiving agent
+should react to each incoming data item or whether we want to allow
+the agent manage this itself.</P>
+
+<P>For example, we could imagine a software engineering process in
+which requirements and design are parallel steps. When a requirement
+changes, it is sent to the design activity using lateral dataflow.
+With this type of high-level process description, we may want to
+specify the process to use when a change arrives, so starting a new
+step to handle each change seems appropriate. In this case, we may
+want to treat this as a cardinality issue. (Repeat this step as long
+as there is matching tuple to read that we haven't processed yet.)
+The agents starts a different instantiation of the step for each data
+item.</P>
+
+<P>In other cases, we may have an automated agent acting as a server.
+It receives a stream of requests. It may be more sensible to allow
+the agent to have a single Run step. It simply gets things from the
+stream within its own code, and handles them, rather than requiring
+it to start a new step for each incoming data item. This approach
+seems most sensible when we have automated agents and we don't want
+to control their internal behavior at all.</P>
+
+<H3>Making current values available</H3>
+
+<P>Here an agent may be continuously monitoring a sensor. This agent
+will run in parallel with other activities that use the sensor value.
+This is a producer/consumer problem but where the value is
+overwritten rather than buffered. As with the previous set of
+examples, if we want to model the activities that result in the
+generation of an output, it makes sense to have the lateral dataflow
+output occur at the end of some step.</P>
+
+<P>If, instead, we want to allow the agent to be in control of the
+generation of output autonomously, it makes sense to have the agent
+start a single step and simply "out" values repeatedly within its own
+code.</P>
+
+<H3>Synchronization</H3>
+
+<P>We have two steps running in parallel. At some point they need to
+synchronize their activity before continuing. They could each use
+lateral dataflow to send an "I am here" message to the other. When
+each have both sent and received their message, they each continue.
+In this case, we would probably want the synchronization point to be
+visible in the Little-JIL code. Here, we would want to wait (perhaps
+with a timeout) if the tuple wasn't ready to be input.</P>
+
+<H2>Proposal</H2>
+
+<P>At a minimum, support the notion of TupleCollections to simplify
+the programming of streams as Jada does.</P>
+
+<P>Don't require reading and writing the tuple space to be
+synchronized with starting and stopping of steps. Instead, have
+AgendaItem provide read and write methods so that an agent can
+deliver results during execution of a step. Still require
+declarations in the LittleJIL code as with parameters. Reasoning: one
+of the main goals should be to allow concurrently executing steps to
+communicate. By synchronizing with step execution, you prevent this
+and force agents to unnaturally decompose a step into small pieces
+just to allow communication. For example, the sensor monitor would
+need to start a new step everytime it wanted to report a new value,
+instead of looping inside the agent calling the write method multiple
+times.</P>
+
+<P>To improve annalysis, it is important to know which steps will
+comunicate with each other. This requires either explicit declaration
+of the communicating steps (as Manifold does) or inferring which may
+communicate (as STL++ does). I have no good solutions here, but
+without this ability, I don't see how analysis will improve.</P>
+
+<P></P>
+</BODY>
+</HTML>

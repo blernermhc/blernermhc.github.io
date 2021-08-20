@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Capturing and Using Scientific Data Provenance</title>
+    <link rel="stylesheet" type="text/css" href="../research-style.css" >
+  </head>
+
+  <body bgcolor="#FFFFFF" link="#0000FF" alink="#0000FF" vlink="#8800FF" text="#000000">
+
+<h1>Capturing and Using Scientific Data Provenance</h1>
+<table width="100%">
+<tr>
+<td width="33%">
+Barbara Lerner<br>
+Elizabeth Fong<br>
+Mount Holyoke College
+</td>
+<td width="33%">
+Emery Boose<br>
+Aaron Ellison<br>
+Harvard Forest
+</td>
+<td width="33%">
+Margo Seltzer<br>
+University of British Columbia
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr>
+<td width="33%">
+Thomas Pasquier<br>
+University of Bristol
+</td>
+<td width="33%">
+Joe Wonsil<br>
+Carthage College
+</td>
+<td width="33%">
+Orenna Brand<br>
+Columbia University
+</td>
+</tr>
+</table>
+
+<h2>Project Overview</h2>
+<h3>Bringing Provenance Collection to Scientists</h3>
+
+<p>
+<img src="figures/HFProcessingWithR.png" align="right" width="569" height="401">
+In this project, computer scientists from Mount Holyoke College and
+the University of Britsh Columbia are collaborating with environmental
+scientists from Harvard Forest to explore how to capture and
+productively use scientific data provenance.  
+</p>
+
+<p>
+Scientists routinely collect "factual" 
+data provenance such as who collected the data,
+where, when, and with what instruments.  Increasingly, scientists are
+using workflow tools, like <a
+href="https://kepler-project.org/">Kepler</a>, 
+<a href="http://www.taverna.org.uk/">Taverna</a>, and <a
+href="www.vistrails.org/">Vistrails</a>, among 
+others, to collect higher-level provenance describing how data moves
+between websites and a variety of tools.  However, little work has
+been done collecting provenance about data analysis steps done within
+tools that perform potentially complex data analyses and
+transformations.  We are addressing this 
+issue by collecting provenance from the execution of <a
+href="http://www.r-project.org/">R</a>, a language used widely for
+statistical analysis and plotting. 
+</p>
+
+<!--<p>A wireless sensor network is currently under development for measuring
+  real-time ecosystem water flux at
+  the <a href="http://harvardforest.fas.harvard.edu/">Harvard Forest
+  Long-Term Ecological Research (LTER)</a> site in Petersham,
+  Massachusetts, USA. This system will integrate ongoing
+  meteorological, hydrological, eddy flux, and tree physiological
+  measurements.  Simultaneous measurements in adjoining small
+  watersheds will enable researchers to study variations in water flux
+  caused by differences in topography, soils, vegetation, land use,
+  and natural disturbance history.  Frequent sampling will enable
+  study of water flux dynamics at a wide range of temporal scales,
+  from minutes to observe the response of evapotranspiration to light,
+  to days to observe the response of ground water to precipitation and
+  snow melt, to years to observe the response of an ecosystem to
+  climate, reforestation, land use, and natural disturbance.</p>
+-->
+
+<p>
+The provenance data that we collect are stored in files, along
+  with copies of input and output data and plots, snapshots of
+  intermediate computations and the source of the R 
+  scripts that are executed.  In addition to archiving the provenance,
+  we are also developing tools that use the provenance to enable a
+  scientist to clean and debug their code and create a virtual machine
+  that allows the exact computation to be reproduced.
+</p>
+
+<hr>
+
+<ul>
+<li> <a href="index.html">Introduction to Data Provenance</a>
+<li> Project overview
+<li> <a href="tools.html">Tools that use provenance</a>
+<li> <a href="ddg.html">Representing provenance with data derivation
+    graphs</a>
+<li> <a href="RDataTracker.html">Collecting provenance from R scripts with
+    RDataTracker</a>
+<li> <a href="DDGExplorer.html">Viewing provenance with DDG Explorer</a>
+<li> <a href="publications.html">Papers and presentations</a>
+<li> <a
+href="http://harvardforest.fas.harvard.edu:8080/exist/xquery/data.xq?id=hf091">Software 
+Download</a>
+</ul>
+
+  </body>
+</html>

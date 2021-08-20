@@ -1,0 +1,79 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+<title>Exception Handling Patterns for Process Modeling</title>
+</head><body bgcolor="white">
+<center>
+<h1>Exception Handling Patterns for Process Modeling</h1>
+<table>
+<tr>
+<td>
+<h2>
+Barbara Staudt Lerner<br>
+Computer Science Department<br>
+Mt. Holyoke College<br>
+{blerner@mtholyoke.edu}<p>
+</h2>
+</td>
+
+<td width=100>
+</td>
+
+<td>
+<h2>
+Stefan Christov, Leon Osterweil, Alexander Wise<br>
+Computer Science Department<br>
+University of Massachusetts, Amherst<br>
+{christov,wise,ljo}@cs.umass.edu}<br>
+</h2>
+</td>
+</tr>
+
+<td>
+<h2>
+Reda Bendraou<br>
+University of Pierre &amp; Marie Curie, Paris, France<br.
+{reda.bendraou@gamil.com}<br>
+</h2>
+</td>
+
+<td>
+<h2>
+Udo Kannengiesser<br>
+NICTA, Australia<br>
+{Udo.Kannengiesser@nicta.com.au}<br>
+</h2>
+</td>
+</table>
+
+<h3>
+Abstract
+</h3>
+</center>
+
+<p>Process modeling allows for analysis and improve- 
+ment of processes that coordinate multiple people and tools 
+working together to carry out a task. Process modeling typically 
+focuses on the normative process, that is, how the collaboration 
+transpires when everything goes as desired. Unfortunately, real 
+world processes rarely proceed that smoothly. A more complete 
+analysis of a process requires that the process model also include 
+details about what to do when exceptional situations arise. We 
+have found that in many cases, there are abstract patterns that 
+capture the relationship between exception handling tasks and 
+the normative process. Just as object-oriented design patterns 
+facilitate the development, documentation and maintenance of 
+object-oriented programs, we believe process patterns can facili- 
+tate the development, documentation and maintenance of process 
+models. In this paper, we focus on the exception handling patterns 
+that we have observed over many years of process modeling. We 
+describe these patterns using three process modeling notations: 
+UML 2.0 Activity Diagrams, BPMN and Little-JIL. We present 
+both the abstract structure of the pattern as well as examples of 
+the pattern in use. We also provide some preliminary statistical 
+survey data to support the claim that these patterns are found 
+commonly in actual use and discuss the relative merits of the 
+three notations with respect to their ability to represent these 
+patterns.
+</p>
+</body></html>

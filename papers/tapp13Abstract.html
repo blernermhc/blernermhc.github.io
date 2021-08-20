@@ -1,0 +1,79 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+<title>Supporting Undo and Redo in Scientific Data Analysis</title>
+</head><body bgcolor="white">
+<center>
+<h1>Supporting Undo and Redo in Scientific Data Analysis</h1>
+<table>
+<tr>
+<td>
+<h2>
+Xiang Zhao, Yuriy Brun, Leon Osterweil<br>
+Department of Computer Science<br>
+University of Massachusetts, Amherst<br>
+{xiang,brun,ljo}@cs.umass.edu.edu<p>
+</h2>
+</td>
+
+<td width=100>
+</td>
+<td>
+<h2>
+Emery Boose<br>
+Harvard Forest, Harvard University<br>
+boose@fas.harvard.edu<br>
+</h2>
+</td>
+
+</tr>
+
+<tr>
+<td>
+<h2>
+Barbara Staudt Lerner<br>
+Computer Science Department<br>
+Mt. Holyoke College<br>
+blerner@mtholyoke.edu<p>
+</h2>
+</td>
+</tr>
+
+<tr>
+<td>
+</td>
+
+<td width=100>
+</td>
+
+</tr>
+</table>
+
+<h3>
+Abstract
+</h3>
+</center>
+
+<p>This paper presents a provenance-based technique to support undoing and redoing
+of data analysis tasks. The technique targets scientists who experiment with
+combinations of approaches to processing raw data into presentable datasets. Raw
+data may be noisy and in need of cleaning, it may suffer from sensor drift that
+requires retrospective calibration and data correction, or it may need
+gap-filling due to sensor malfunction or environmental conditions. Different raw
+datasets may have different issues requiring different kinds of adjustments, and
+each issue may potentially be handled by different approaches. Thus, scientists
+must often experiment with different sequences of approaches. In our work, we
+show how provenance information can be used to facilitate this kind of
+experimentation with scientific datasets. We describe an approach that supports
+the ability to (1)~undo a set of tasks while setting aside the artifacts and
+consequences of performing those tasks, (2)~replace, remove, or add a
+data-processing technique, and (3)~redo automatically those set aside tasks that
+are consistent with the change. We have implemented our technique and
+demonstrate its utility with a case study of a common sensor-network,
+data-processing scenario showing how our approach can reduce the cost of
+changing intermediate data-processing techniques in a complex, data-intensive
+process.
+</p>
+</body></html>
+
+

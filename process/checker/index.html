@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Little-JIL Semantic Checker</title>
+  </head>
+
+  <body bgcolor="#FFFFFF" link="#0000FF" alink="#0000FF" vlink="#8800FF" text="#000000">
+
+    <table width="100%">
+        <tr>
+          <td align=left>
+            <img src="images/checkerlogo.png" width=199 height=69>
+          </td>
+          <td align=left>
+            <ul>
+              <li><a href="index.html">Overview</a>
+              <li><a href="download.html">Download</a>
+              <li><a href="install.html">Installation</a>
+            </ul>
+          </td>
+          <td align=left>
+            <ul>
+              <li><a href="javadoc">Javadocs</a>
+              <li><a href="ruleset.html">Semantic Rules</a>
+            </ul>
+          </td>
+        </tr>
+    </table>
+<h4>Overview</h4>
+
+Little-JIL is a maturing process programming language.  Processes are
+written in a simple visual syntax.  While the editor enforces proper syntax,
+there are a number of semantic requirements that are not guaranteed.  The
+semantic checker described here checks a Little-JIL process against rules
+expressed in first-order logic, and provides feedback to the programmer
+identifying error conditions and providing useful warnings.  The checker
+applies xlinkit, a consistency checking tool for XML documents, along with a
+growing set of custom rules, to check Little-JIL processes represented in an
+XML notation.  Incorporating over a dozen rules and a visual reporting tool,
+the Little-JIL semantic checker provides clear and valuable information
+ranging from common errors to detection of complicated data flow anomalies.
+
+
+<h4>The Project</h4>
+
+    <table align=right border=0 cellspacing=0 cellpadding=0
+    width=420 hspace=10 vspace=10><tr><td><a href="images/checkerui.gif"><img
+    src="images/checkerui-small.png" width=350 height=213></a></td></tr>
+        <tr><td><i>Checker UI Screenshot</i></td></tr></table>
+    The work available here was developed during the summer of 2002 at the
+    <a href="http://www.williams.edu">Williams College</a> <a
+    href="http://www.cs.williams.edu">Computer Science Department</a> by <a
+    href="http://shimon.rura.org">Shimon Rura</a> under the direction of <a
+    href="http://www.mtholyoke.edu/~blerner">Prof. Barbara
+    Lerner</a>.  A <a href="http://www.mtholyoke.edu/~blerner/papers/icse03Poster.pdf">poster</a> describing this work has been accepted to
+    ICSE 2003.  A <a
+    href="http://www.mtholyoke.edu/~blerner/papers/ewspt03.pdf">paper</a>
+    describing this work has been submitted to EWSPT 2003.
+
+    <p>Features of the Little-JIL semantic checker:
+    <ul>
+
+      <li>Little-JIL <a href="ruleset.html">semantic rules</a> are encoded
+      in first-order logic (using <a
+      href="http://www.xlinkit.com">xlinkit</a> syntax)
+
+      <li>the checker runs as a standalone tool that reads a Little-JIL
+        process from a file and invokes xlinkit and XML tools to carry out
+        semantic checking and message reporting
+
+      <li>a graphical user-interface for the checker shows detailed
+      error/warning messages and highlights relevant parts of the process
+      diagram
+
+    </ul>
+
+    <p>An additional by-product of the development is Rule2Latex, an
+    xlinkit-rule to LaTeX pretty-printer, making the first-order logic rules
+    easier to read [<a href="ruleset.html">example</a>].  
+
+    <p>Little-JIL is being developed collaboratively with researchers in the
+      <a href="http://laser.cs.umass.edu">LASER</a> research lab at the <a
+      href="http://www.umass.edu">University of Massachusetts</a>.
+
+    <p>This material is based upon work supported by the National
+    Science Foundation under Grant No. CCR-9988254.  Any opinions,
+    findings, and conclusions or recommendations expressed in this
+    material are those of the authors and do not necessarily reflect
+    the views of the National Science Foundation.
+    <hr>
+    <address><a href="mailto:shimon@rura.org">shimon@rura.org</a></address>
+<!-- Created: Tue Aug 13 14:57:36 EDT 2002 -->
+  </body>
+</html>
