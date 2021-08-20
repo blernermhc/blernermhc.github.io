@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Capturing, Visualizing and Querying Scientific Data Provenance</title>
+    <link rel="stylesheet" type="text/css" href="../research-style.css" >
+  </head>
+
+  <body bgcolor="#FFFFFF" link="#0000FF" alink="#0000FF" vlink="#8800FF" text="#000000">
+
+<h1>Capturing, Visualizing and Querying Scientific Data Provenance</h1>
+<table width="100%">
+<tr>
+<td width="25%">
+<b>Leon Osterweil<br>
+Lori Clarke<br>
+University of Massachusetts, Amherst</b>
+</td>
+<td width="25%">
+<b>Barbara Lerner<br>
+Mount Holyoke College</b>
+</td>
+<td width="25%">
+<b>Emery Boose<br>
+Aaron Ellison<br>
+Harvard Forest,<br>
+Harvard University</b>
+</td>
+<td><a
+  href="http://harvardforest.fas.harvard.edu/education/reu/reu.html"><img
+  src="REU2012.jpg" alt="Harvard Forest REU" width="196" height="92"></a></td>
+</tr>
+</table>
+
+<h2>Viewing Provenance with DDG Explorer</h2>
+
+<table>
+<tr>
+<td>
+DDG Explorer is a tool that allows the user to view and query 
+Data Derivation Graphs (DDGs).  It has the following functionality:
+
+<ul>
+<li>Visualization of DDGs, with the ability to expand and contract
+  portions of the graph to selectively show or hide details.
+<li>Ability to view the data or R functions referenced by pieces of the DDG
+<li>Ability to query a DDG to discover how an input data value gets used, or what data and processing steps lead to the derivation of a particular output value
+<li>Ability to compare R scripts used to generate different DDGs
+<li>Ability to search for where a particular data file is used or generated.
+</ul>
+</td>
+<td>
+<img src="figures/Screenshot.png" align="right" width="291"
+	height="274">
+</td>
+</tr>
+</table>
+
+<h3>Expanding and contracting abstraction layers</h3>
+
+<p>One of the key innovations of DDG Explorer is the ability to capture
+  abstraction and allow users to view their DDGs at an abstract
+  level or expand abstracted nodes to reveal more detail.
+
+<table>
+<tr>
+<th>Most abstract view</th>
+<th>Expanding analyze.data</th>
+<th>Expanding calibrate and plot.data</th>
+</tr>
+<tr>
+<td>
+<img src="figures/abstracted.png" width="300" height="243">
+</td>
+<td>
+<img src="figures/zoom1.png" width="300" height="560">
+</td>
+<td>
+<img src="figures/ddg-fragment.png" width="300" height="332">
+</td>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td>
+<h3>Connecting to the Data and R Scripts</h3>
+<p>
+The nodes in the DDG retain connections to the scientific data,
+  the R scripts and plots produced.  By clicking on nodes in the DDG,
+  the user can see the values as they existed at that point in the
+  computation.
+</p>
+
+<p>DDG Explorer requires Java 1.7.</p>
+</td>
+<td>
+<img src="figures/Plot.png" align="right" width="434"
+	height="367"> 
+</td>
+</tr>
+</table>
+
+<hr>
+
+<p class="left"><a href="ddg/">API for working with DDGs</a></p>
+
+<ul>
+<li> <a href="index.html">Introduction to Data Provenance</a>
+<li> <a href="project_overview.html">Project overview</a>
+<li> <a href="ddg.html">Representing provenance with data derivation
+    graphs</a>
+<li> <a href="RDataTracker.html">Collecting provenance from R scripts with
+    RDataTracker</a>
+<li> Viewing provenance with DDG Explorer
+<li> <a href="publications.html">Papers and presentations</a>
+<li> <a
+href="http://harvardforest.fas.harvard.edu:8080/exist/xquery/data.xq?id=hf091">Software 
+Download</a>
+</ul>
+</body>
+</html>

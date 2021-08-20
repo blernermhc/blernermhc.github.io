@@ -1,0 +1,44 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+<title>Exception Handling Patterns for Processes</title>
+</head><body bgcolor="white">
+<center>
+<h1>Exception Handling Patterns for Processes</h1>
+<table>
+<tr>
+<td>
+<h2>
+Barbara Staudt Lerner<br>
+Computer Science Department<br>
+Mt. Holyoke College<br>
+blerner@mtholyoke.edu<p>
+</h2>
+</td>
+
+<td width=100>
+</td>
+
+<td>
+<h2>
+Stefan Christov, Alexander Wise, Leon Osterweil<br>
+Computer Science Department<br>
+University of Massachusetts, Amherst<br>
+{christov,wise,ljo}@cs.umass.edu<br>
+</h2>
+</td>
+</tr>
+</table>
+
+<h3>
+Abstract
+</h3>
+</center>
+
+<p>Using exception handling patterns in process models can raise the
+  abstraction level of the models, facilitating both their writing and
+  understanding. In this paper, we identify several useful,
+  general-purpose exception handling patterns and demonstrate their
+  applicability in business process and software development models. 
+</p>
+</body></html>

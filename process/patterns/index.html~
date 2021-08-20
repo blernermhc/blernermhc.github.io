@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Model Checker for Little-JIL</title>
+  </head>
+
+  <body bgcolor="#FFFFFF" link="#0000FF" alink="#0000FF" vlink="#8800FF" text="#000000">
+
+    <table width="100%">
+        <tr>
+          <td align=left>
+            <img src="images/modelcheckerlogo.gif" width=199 height=69>
+          </td>
+          <td align=left>
+            <ul>
+              <li><a href="index.html">Overview</a>
+              <li><a href="download.html">Download</a>
+              <li><a href="install.html">Installation</a>
+            </ul>
+          </td>
+        </tr>
+    </table>
+<h4>Overview</h4>
+
+The model checker for Little-JIL allows an analyst to check a process
+for deadlock and to prove properties about a process.  This model checker
+uses 
+<a href="http://www.doc.ic.ac.uk/ltsa/">LTSA</a>,
+developed at Imperial College by Jeff Kramer and Jeff 
+Magee.  A process is translated to FSP, the input language for LTSA.
+The analyst may extend this translation with properties to prove, also
+written in FSP.
+
+<p> There are currenlty some limitations on Little-JIL
+ processes that can be translated to FSP:
+<ul>
+<li> Reactions are not supported.
+<li> Recursion must be manually unrolled prior to translation.
+<li> A parallel step may have at most 4 children.  If cardinality is
+ uses with an unliminted upper bound, the analyzer will use 4 for an
+ upper bound.
+<li> A choice step should have no more than 5 children.
+<li> The maximum number of exceptions that may arrive at one handler
+ on one execution of a step is 10.
+</ul>
+
+<h4>The Project</h4>
+
+A <a href="http://www.mtholyoke.edu/~blerner/papers/issta04.pdf">paper</a> describing this work has been accepted to
+ISSTA 2004.
+
+    <p>Little-JIL is being developed collaboratively with researchers in the
+      <a href="http://laser.cs.umass.edu">LASER</a> research lab at the <a
+      href="http://www.umass.edu">University of Massachusetts</a>.
+
+    <p>This material is based upon work supported by the National
+    Science Foundation under Grant No. CCR-9988254.  Any opinions,
+    findings, and conclusions or recommendations expressed in this
+    material are those of the authors and do not necessarily reflect
+    the views of the National Science Foundation.
+    <hr>
+    <address><a href="mailto:blerner@mtholyoke.edu">blerner@mtholyoke.edu</a></address>
+<!-- Created: Tue Aug 13 14:57:36 EDT 2002 -->
+  </body>
+</html>

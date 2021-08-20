@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Capturing, Visualizing and Querying Scientific Data Provenance</title>
+    <link rel="stylesheet" type="text/css" href="../research-style.css" >
+  </head>
+
+  <body bgcolor="#FFFFFF" link="#0000FF" alink="#0000FF" vlink="#8800FF" text="#000000">
+
+<h1>Capturing, Visualizing and Querying Scientific Data Provenance</h1>
+<table width="100%">
+<tr>
+<td width="25%">
+<b>Leon Osterweil<br>
+Lori Clarke<br>
+University of Massachusetts, Amherst</b>
+</td>
+<td width="25%">
+<b>Barbara Lerner<br>
+Mount Holyoke College</b>
+</td>
+<td width="25%">
+<b>Emery Boose<br>
+Aaron Ellison<br>
+Harvard Forest,<br>
+Harvard University</b>
+</td>
+<td><a
+  href="http://harvardforest.fas.harvard.edu/education/reu/reu.html"><img
+  src="REU2012.jpg" alt="Harvard Forest REU" width="196" height="92"></a></td>
+</tr>
+</table>
+
+<h2>Representing Provenance with Data Derivation Graphs</h2>
+
+<table>
+<tr>
+<td>
+<p>The data provenance that we collect is stored in a Data Derivation
+Graph (DDG).  The nodes of the graph represent either data or
+processing steps.  Red edges connect the data to the steps that use it
+as input or produce it as output.  Blue edges connect processing steps
+directly to show control flow relationships.
+
+<p>While not shown in this visualization, the DDG captures additional
+  information related to the scientific computation.    
+Data nodes capture the scientific data, including intermediate
+results produced during computation.  Nodes that represent processing
+steps capture the R source code that the step represents.</p>
+
+<p>The DDG snippet shown to the right was generated from running a simple R
+  script demonstrating some basic steps in processing sensor data for
+  general use. 
+  Focusing first on the yellow nodes, we see 2 steps:
+
+<ol>
+<li> Calibrate
+<li> Plot data
+</ol>
+
+<p>Each yellow node represents the execution of a function.  
+
+<p> The purple nodes represent data values that are being manipulated
+  by the script.  A processing node with an arrow pointing to a data node 
+  indicates that the data were output from the processing step.  For
+  example, the calibrate step returns the result of doing the
+  calibration.</p>
+
+</td>
+<td>
+<img src="figures/ddg-fragment.png" align="right" width="497"
+     height="551">
+</td>
+</tr>
+</table>
+
+<p>Data input to functions shows how parameter bindings are done.  For
+example, the calibrate function has a parameter named <i>data</i>.  In
+the DDG shown here, the argument passed in is <i>raw.data</i>.  The
+beige node represents the binding from the argument to the parameter,
+taking as input the argument and producing as output the parameter,
+which is then input to the function.
+</p>
+
+<p>The green nodes represent the start and finish of a chunk of
+related nodes.  In this example, they correspond to a complete
+function execution, including the parameter binding and the binding of
+a return value to the place where it is called.
+</p>
+
+<p>The DDG representation is very general and can be used to describe
+data and control flow of programs written in many languages.  We have
+produced several tools to create and work with DDGs:
+</p>
+<ul>
+<li> <a href="RDataTracker.html">RDataTracker</a>, a tool to create DDGs from R scripts
+<li> <a href="http://laser.cs.umass.edu/tools/littlejil.shtml">Little-JIL</a>,
+  a software process language that has DDG creation built
+into it
+<li> <a href="DDGExplorer.html">DDG Explorer</a>, a tool to visualize and query DDGs
+<li> The <a href="ddg/index.html">DDG API</a> is also available for interested parties to create
+ddgs from their own tools.
+</ul>
+
+<hr>
+
+<ul>
+<li> <a href="index.html">Introduction to Data Provenance</a>
+<li> <a href="project_overview.html">Project overview</a>
+<li> Representing provenance with data derivation
+    graphs
+<li> <a href="RDataTracker.html">Collecting provenance from R scripts with
+    RDataTracker</a>
+<li> <a href="DDGExplorer.html">Viewing provenance with DDG Explorer</a>
+<li> <a href="publications.html">Papers and presentations</a>
+<li> <a
+href="http://harvardforest.fas.harvard.edu:8080/exist/xquery/data.xq?id=hf091">Software 
+Download</a>
+</ul>
+
+</body>
+</html>

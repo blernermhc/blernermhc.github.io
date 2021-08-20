@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Capturing, Visualizing and Querying Scientific Data Provenance</title>
+    <link rel="stylesheet" type="text/css" href="../research-style.css" >
+  </head>
+
+  <body bgcolor="#FFFFFF" link="#0000FF" alink="#0000FF" vlink="#8800FF" text="#000000">
+
+<h1>Capturing, Visualizing and Querying Scientific Data Provenance</h1>
+<table width="100%">
+<tr>
+<td width="25%">
+<b>Leon Osterweil<br>
+Lori Clarke<br>
+University of Massachusetts, Amherst</b>
+</td>
+<td width="25%">
+<b>Barbara Lerner<br>
+Mount Holyoke College</b>
+</td>
+<td width="25%">
+<b>Emery Boose<br>
+Aaron Ellison<br>
+Harvard Forest,<br>
+Harvard University</b>
+</td>
+<td><a
+  href="http://harvardforest.fas.harvard.edu/education/reu/reu.html"><img
+  src="REU2012.jpg" alt="Harvard Forest REU" width="196" height="92"></a></td>
+</tr>
+</table>
+
+<h2>Papers and Presentations</h2>
+<p class="left">Barbara Lerner and Emery Boose, "RDataTracker: Collecting
+  Provenance in an Interactive Scripting Environment", 6th USENIX
+  Workshop on the Theory and Practice of Provenance, Cologne, Germany,
+  June 2014. (<a href="../papers/tapp14Abstract.html">Abstract</a>, <a href="https://www.usenix.org/conference/tapp2014/agenda/presentation/lerner">Paper</a>)
+  <p>
+  
+<p class="left">Barbara Lerner and Emery Boose, "RDataTracker and DDG Explorer
+Capture, Visualization and Querying of Provenance from R Scripts", 5th
+    International Provenance and Annotation Workshop (IPAW '14),
+    Cologne, Germany, June 2014. (<a href="../papers/ipaw14Paper.pdf">Paper</a>)
+  <p>
+
+<p class="left">Xiang Zhao, Emery R. Boose, Yuriy Brun, Barbara Staudt
+  Lerner and Leon J. Osterweil, "Supporting Undo and Redo in
+  Scientific Data Analysis", Workshop on the Theory and Practice of
+  Provenance, 2013.
+  (<a href="../papers/tapp13Abstract.html">Abstract</a>,
+  <a href="https://www.usenix.org/conference/tapp13/technical-sessions/presentation/zhao">
+  Paper</a>)
+</p>
+
+<p class="left">Xiang Zhao, Barbara Lerner, Leon Osterweil, Emery Boose, Aaron
+  Ellison, "Provenance Support for Rework", 4th USENIX Workshop on the
+  Theory and Practice of Provenance (TaPP '12), Cambridge,
+  Massachusetts, June 2012.</dt> 
+  (<A HREF="../papers/tapp12Abstract.html">Abstract</a>)
+  (<A HREF="https://www.usenix.org/system/files/conference/tapp12/tapp12-final18.pdf">Paper (pdf)</a>)
+</p>
+
+<p class="left">Sofiya Taskova, <a href="TaskovaThesis.pdf">Capturing,
+  Persisting and Querying the Provenance of Scientific Data</a>,
+  Honors Thesis, May 2012, Summer 2010 and 2011 REU student.</p> 
+
+<p class="left">Barbara Lerner, Emery Boose, Leon Osterweil, Aaron Ellison and
+  Lori Clarke, "Provenance and Quality Control in Sensor Networks",
+  Environmental Information Managemet 2011 Conference, Santa Barbara,
+  California, September 2011.
+  (<A HREF="../papers/eim11Abstract.html">Abstract</a>)
+  (<A HREF="../papers/EIM2011.pdf">Paper (pdf)</a>)</p> 
+
+<p class="left">Corietta L. Teshera-Sterne, <a href="Cori_paper.pdf">A Software Engineering
+  Approach to Scientfic Data Management</a>, Summer 2009 REU student, Independent Study project
+  at Mount Holyoke College, May 2010.  This project was presented at the New England Undergraduate Computing Symposium</p>
+
+<p class="left">Emery R. Boose, Aaron M. Ellison, Leon J. Osterweil,
+  Rodion Podorozhny, Lori Clarke, Alexander Wise, Julian L. Hadley, David
+  R. Foster. 2007. "Ensuring
+Reliable Datasets for Environmental Models and Forecasts", <i>Ecological
+Informatics</i>, 2: 237-247.
+  (<A HREF="Boose_EcoInformatics_2007.pdf">Paper (pdf)</a>)</p> 
+
+<p class="left">Aaron M. Ellison, Leon J. Osterweil, Julian L. Hadley,
+  Alexander Wise, Emery R. Boose, Lori Clarke, David R. Foster, Allen
+  Hanson, David Jensen, P. S. Kuzeja, Ed Riseman, Howard
+  Schultz. 2006. "Analytic Webs Support the Synthesis of Ecological
+  Data Sets", <i>Ecology</i>, 87: 1345-1358. 
+  (<A HREF="Ellison_Ecology_2006.pdf">Paper (pdf)</a>)</p> 
+
+<h3>REU Blog Posts</h3>
+
+<p class="left">Luis Cruz, "Fixing Science:  Accessible and Efficient
+  Data Provenance in the R Scripting Environment", Summer 2014 REU student</p>
+
+<p class="left">Nikki
+  Hoffler, <a href="http://prezi.com/lnuaiqhysxzf/the-aesthetics-of-data-derivation/">"The
+    Aesthetics of Data Derivation"</a>, Summer 2014 REU student</p>
+<p class="left">Shay Adams, "Capturing Data Provenance from R Script
+  Execution", Summer 2013 REU student</p>
+<p class="left">Vasco Carinhas, "Quality Control Enforcer: Making
+  data's storyline user friendly", Summer 2013 REU student</p>
+
+<p class="left">Miruna
+  Oprescu, <a
+	      href="http://harvardforestreu.blogspot.com/2012/08/research-profile-visualization-tools.html">Visualization
+  Tools for Digital Dataset Derivation Graphs</a>, Summer 2012 REU student</p>
+
+<p class="left">Yujia Zhou, <a
+	      href="http://harvardforestreu.blogspot.com/2012/08/research-profile-trees-and-bugs-in.html">Trees and Bugs in Computers </a>, Summer 2012 REU student</p>
+
+<p class="left">Snickers, <a
+	      href="http://harvardforestreu.blogspot.com/2012/08/the-blog-of-ecologist-dog.html">The
+	      Blog of an Ecologist Dog</a>, Summer 2012 REU mascot</p>
+
+<hr>
+
+<ul>
+<li> <a href="index.html">Introduction to Data Provenance</a>
+<li> <a href="project_overview.html">Project overview</a>
+<li> <a href="ddg.html">Representing provenance with data derivation
+    graphs</a>
+<li> <a href="RDataTracker.html">Collecting provenance from R scripts with
+    RDataTracker</a>
+<li> <a href="DDGExplorer.html">Viewing provenance with DDG Explorer</a>
+<li> Papers and presentations
+<li> <a
+href="http://harvardforest.fas.harvard.edu:8080/exist/xquery/data.xq?id=hf091">Software 
+Download</a>
+</ul>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Capturing, Visualizing and Querying Scientific Data Provenance</title>
+    <link rel="stylesheet" type="text/css" href="../research-style.css" >
+  </head>
+
+  <body bgcolor="#FFFFFF" link="#0000FF" alink="#0000FF" vlink="#8800FF" text="#000000">
+
+<h1>Capturing, Visualizing and Querying Scientific Data Provenance</h1>
+<table width="100%">
+<tr>
+<td width="25%">
+<b>Leon Osterweil<br>
+Lori Clarke<br>
+University of Massachusetts, Amherst</b>
+</td>
+<td width="25%">
+<b>Barbara Lerner<br>
+Mount Holyoke College</b>
+</td>
+<td width="25%">
+<b>Emery Boose<br>
+Aaron Ellison<br>
+Harvard Forest</b>
+</td>
+<td><a
+  href="http://harvardforest.fas.harvard.edu/education/reu/reu.html"><img
+  src="REU2012.jpg" alt="Harvard Forest REU" width="196" height="92"></a></td>
+</tr>
+</table>
+
+<h3>Available Software</h3>
+
+<p>DDG Explorer is a tool that allows the user to view and query the
+>Data Derivation Graphs (DDGs).  The
+  DDG notation is 
+general enough to support many languages, but currently we can only
+  create DDGs through the execution of Little-JIL processes or
+  instrumented R scripts. 
+
+<p>DDG Explorer has the following functionality:
+<ul>
+<li>Visualization of DDGs, with the ability to zoom in and out to selectively show or hide details.
+<li>Ability to view the data or R functions referenced by pieces of the DDG
+<li>Ability to query a DDG to discover how an input data value gets used, or what data and processing steps lead to the derivation of a particular output value
+<li>Ability to compare R scripts used to generate different DDGs
+<li>Ability to search for where a particular data file is used or generated.
+</ul>
+
+<p>To create and work with DDGs created from R scripts, you should
+  <a href="http://harvardforest.fas.harvard.edu:8080/exist/xquery/data.xq?id=hf091">download
+  the RDataTracker library and DDG Explorer and their user guides</a>. 
+<ul>
+<li>RDataTracker is an R library
+  that contains functions used to instrument R scripts to collect
+  provenance data in the form of
+  DDGs.
+
+<li>DDG Explorer is the tool that allows
+  you to 
+  visualize and query the DDGs after they have been created.  The
+  software requires Java 
+  1.7.
+</ul>
+
+</body>
+</html>

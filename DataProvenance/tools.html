@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Capturing and Using Scientific Data Provenance</title>
+    <link rel="stylesheet" type="text/css" href="../research-style.css" >
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"> 
+  </head>
+
+  <body bgcolor="#FFFFFF" link="#0000FF" alink="#0000FF" vlink="#8800FF" text="#000000">
+
+<h1>Capturing and Using Scientific Data Provenance</h1>
+<table width="100%">
+<tr>
+<td width="33%">
+Barbara Lerner<br>
+Elizabeth Fong<br>
+Mount Holyoke College
+</td>
+<td width="33%">
+Emery Boose<br>
+Aaron Ellison<br>
+Harvard Forest
+</td>
+<td width="33%">
+Margo Seltzer<br>
+University of British Columbia
+</td>
+</tr>
+</table>
+<table width="100%">
+<tr>
+<td width="33%">
+Thomas Pasquier<br>
+University of Bristol
+</td>
+<td width="33%">
+Joe Wonsil<br>
+Carthage College
+</td>
+<td width="33%">
+Orenna Brand<br>
+Columbia University
+</td>
+</tr>
+</table>
+
+<h2>Tools that Use Provenacne</h2>
+
+<p>
+<img src="figures/Tree-medium.png" alt="Fruits of provenance"
+     width="450" height="353" align="right">
+In this project, we have focused on the collection of provenance from
+R scripts using a tool called RDataTracker.  The collected provenance 
+consists of an execution history of the script, including intermediate
+data values, copies of scripts used, as well as input and
+output files and plots created.  This information is stored in the
+file system for later use.
+</p>
+
+<p>The main focus of our current research is thinking beyond
+  provenance as purely archival data.  How can scientists leverage
+  provenance to improve the science?  
+</p>
+
+<p>
+<b> Understanding and debugging scripts </b>
+</p>
+<p>
+Provenance can help a scientist understand how a script is behaving.
+Using this knowledge, the scientist can determine what is causing a
+script to produce incorrect output, or to convince the scientist that
+the behavior is correct.
+</p>
+
+<p>
+One tool to help understand script behavior
+is <a href="DDGExplorer.html">provViz</a>, 
+a visualizer that
+allows the scientist to see which lines of code were executed,
+variable values before and after those lines are executed, and saved
+copies of input and output files and graphs.
+</p>
+
+<p>
+Another tool that allows a scientist to gain a better understanding of
+their script's behavior is <a href="https://github.com/ProvTools/provDebugR">provDebugR</a>.
+provDebugR is a time-travelling debugger.  It allows the user to
+examine the state of the variables in their script at different points
+of execution, after the script has completed execution.  It provides
+access to the same information as provViz, but with a user interface
+that is familiar to anyone used to using a debugger.  With this tool a
+script can be debugged by running it once and examining the collected
+provenance, rather than setting breakpoints, inserting print
+statements, and running the script multiple times.
+</p>
+
+<p>
+<b> Reproducing script execution </b>
+</p>
+
+<p>
+An important problem in science is the need for reproducibility.
+While this is clearly evident in experiments that require the
+collection and measurement of physical artifacts, it is also a problem
+for reproducing results from data analysis.  Having the data and
+script is not necessarily sufficient to be able to reproduce the
+results.  Libraries that a script depends on may change, the language
+implementation may change, the platform on which the script is
+executed might change.  Any of these changes can result in the script
+no longer producing the same
+result.  <a href="https://www.computer.org/csdl/mags/cs/2018/04/mcs2018040111-abs.html">Encapsulator</a> is a tool that
+builds a virtual machine that encapsulates the script, its data, and the
+libraries it uses into a virtual machine that can be re-run to produce
+the exact result.  An encapsulated script could be associated with a
+publication, giving scientists the opportunity to verify and build on
+each other's analytic work in a very concrete way.
+</p>
+
+<p>
+<b> Cleaning script code </b>
+</p>
+
+<p>
+Scientists often build scripts in an exploratory way.  They may write
+some code to read data, do some analysis and produce a plot.  They
+will then study the plot and develop more questions which they answer
+by writing more code, producing more plots, etc.  In the end, they may
+want to write a paper or share code that is based on only some of the
+output plots.  It can be a tedious and error-prone process to manually
+disentangle the code and be left with just the code that produced the
+most valuable results.  <a href="https://github.com/ProvTools/Rclean">Rclean</a> uses
+provenance to identify which lines of code were used to produce the
+output of interest.  It then extracts those lines of code from the
+original script, producing a cleaned version of the code.
+</p>
+
+<hr>
+
+<ul>
+<li> <a href="project_overview.html">Project overview</a>
+<li> Tools that use provenance
+<li> <a href="ddg.html">Representing provenance with a
+    graph</a>
+<li> <a href="RDataTracker.html">Collecting provenance from R scripts with
+    RDataTracker</a>
+<li> <a href="DDGExplorer.html">Viewing provenance with provViz</a>
+<li> <a href="publications.html">Papers and presentations</a>
+<li> <a
+href="software.html">Software 
+Download</a>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Capturing, Visualizing and Querying Scientific Data Provenance</title>
+    <link rel="stylesheet" type="text/css" href="../research-style.css" >
+  </head>
+
+  <body bgcolor="#FFFFFF" link="#0000FF" alink="#0000FF" vlink="#8800FF" text="#000000">
+
+<h1>Capturing, Visualizing and Querying Scientific Data Provenance</h1>
+<table width="100%">
+<tr>
+<td width="25%">
+<b>Leon Osterweil<br>
+Lori Clarke<br>
+University of Massachusetts, Amherst</b>
+</td>
+<td width="25%">
+<b>Barbara Lerner<br>
+Mount Holyoke College</b>
+</td>
+<td width="25%">
+<b>Emery Boose<br>
+Aaron Ellison<br>
+Harvard Forest,<br>
+Harvard University</b>
+</td>
+<td><a
+  href="http://harvardforest.fas.harvard.edu/education/reu/reu.html"><img
+  src="REU2012.jpg" alt="Harvard Forest REU" width="196" height="92"></a></td>
+</tr>
+</table>
+
+<h2>Collecting Provenance from R Scripts with RDataTracker</h2>
+
+<p>RDataTracker is an R library
+  that contains functions used to collect data provenance during an R
+  console session or while executing an R script. To use RDataTracker,
+  the user can record a console session, run a script as is, or add
+  function calls to a script to collect additional provenance details.
+  In addition to its normal operation, execution of an annotated script
+  will create a text file defining the DDG that captures the
+  provenance of that script execution.  It will also have stored the
+  intermediate values calculated during the execution and saved copies
+  of the script and its input files.
+</p>
+
+<p>Here is an example of what the annotations look like:
+</p>
+
+<table>
+<tr>
+<td>
+<pre>
+library(RDataTracker)
+
+ddg.init("SensorManagement.R", "ddg")
+</pre>
+</td>
+<td>Initializes the DDG telling it the name of the script file and the
+  folder to save the data provenance in.
+</td>
+</tr>
+<tr>
+<td>
+<pre>
+
+...
+
+calibrate <- function(data) {
+  ddg.function()
+  calibrated.data <- data * 1.1
+  return(ddg.return.value(calibrated.data))
+}
+</pre>
+</td>
+<td>
+To capture parameter bindings and return values from functions, add
+calls to ddg.function and ddg.return.value.
+</td>
+</tr>
+<tr>
+<td>
+<pre>
+...
+
+calibrated.data <- calibrate(raw.data)
+plot.data(calibrated.data, "calibrated-plot.jpeg")
+
+...
+
+ddg.save()
+</pre>
+</td>
+<td>
+Finally, save the DDG at the end of the script.  Notice that there is
+no need to add annotations to capture data provenance of the top level
+commands. 
+</td>
+</tr>
+</table>
+
+<p>We provide <a href="DDGExplorer.html">DDG Explorer</a> to view your
+  DDGs as graphs, manipulate 
+  them, examine data values, and save to a database for later use.
+</p>
+
+<hr>
+
+<ul>
+<li> <a href="index.html">Introduction to Data Provenance</a>
+<li> <a href="project_overview.html">Project overview</a>
+<li> <a href="ddg.html">Representing provenance with data derivation
+    graphs</a>
+<li> Collecting provenance from R scripts with
+    RDataTracker
+<li> <a href="DDGExplorer.html">Viewing provenance with DDG Explorer</a>
+<li> <a href="publications.html">Papers and presentations</a>
+<li> <a
+href="http://harvardforest.fas.harvard.edu:8080/exist/xquery/data.xq?id=hf091">Software 
+Download</a>
+</ul>
+
+</body>
+</html>

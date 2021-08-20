@@ -1,0 +1,210 @@
+
+This is a copy of the workshop paper that we submitted:
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <TITLE>Cooperative Concurrency Control for Software Engineering
+(25-Jul-1997)</TITLE>
+   <META NAME="GENERATOR" CONTENT="Mozilla/3.01Gold (X11; U; OSF1 V3.2
+alpha) [Netscape]">
+</HEAD>
+<BODY>
+
+<H1 ALIGN=CENTER>Cooperative Concurrency Control for Software
+Engineering</H1>
+
+<H3 ALIGN=CENTER>Barbara Staudt Lerner <BR>
+Arvind H Nithrakashyap<BR>
+Lori Clarke <BR></H3>
+<H3 ALIGN=CENTER>University of Massachusetts, Amherst<BR>
+July 1997</H3>
+
+<H3 ALIGN=CENTER>Position Paper Submitted to the OOPSLA '97 Workshop
+on<BR> Collaboration in the Object Development Lifecycle</H3>
+
+<P>Software engineering is a team effort. Collaboration refers to the
+ability of team members to work together to reach a common goal. 
+Collaboration involves communication and sharing of ideas, plans, and
+progress on an individual's activities. The exact nature of this
+communication and sharing can vary greatly. For example, working out a
+design on a shared whiteboard is one form of collaboration. Another form
+involves one individual taking primary responsibility for an activity and
+requesting help from others on particular parts of the activity, such as
+when writing a paper.</P>
+
+<P> In a software engineering environment, the artifacts that the
+developers wish to collaborate on can be represented as objects. 
+Collaboration can be supported by controlling access to these objects in a
+way that allows the collaborators to see and modify the objects but
+prohibits others from doing so. In this paper, we describe a mechanism
+that supports a range of collaborative concurrency control capabilities,
+providing what we believe is needed in software engineering
+environments.</P>
+
+<P> Current approaches to supporting software engineering teams provide
+better support for prohibiting access to objects than for allowing access
+by selected individuals. Many software engineering tools use a
+checkin/checkout mechanism to control access. In these systems, there is a
+public area in which objects are readable by everyone in the project. An
+individual checks out an object into a private workspace, where only that
+individual can see and modify it. When the changes are complete, the
+individual checks the object back into the public area. To collaborate in
+this type of environment typically involves working outside of the system.
+For example, developers might use the operating system's access control
+mechanisms to create groups of collaborators and change accessibility on
+individual workspaces so that they become group workspaces. Another
+approach is to allow multiple developers to checkout the same item and
+require them to merge their changes when they check the objects back
+in.</P>
+
+<P> Our approach is to provide an object management infrastructure that
+supports a very general model of cooperative concurrency control. The goal
+is to allow individuals to decide which objects they want to work on
+privately and which objects and with whom they want to collaborate. In
+developing this infrastructure we focussed on four common scenarios in
+software engineering:  </P>
+
+<UL>
+<P> </P>
+
+<LI> Co-authoring - Multiple developers modify the same object. This can
+be a real-time co-authorship as in a shared whiteboard environment or an
+off-line co-authorship as in coding the same class. </LI>
+
+<LI> Observation - One developer modifies an object while others can see
+the progress being made, but cannot modify the object. For example, a
+tester might be able to observe a design under development in order to
+develop test cases. </LI>
+
+<LI> Loaning - One developer gives an object to another to work on for a
+period of time, but expects to get the object back when the second
+developer is done. For example, a designer might loan a class design to
+some reviewers expecting to get the design back with review comments added
+to it. </LI>
+
+<LI> Transferring - One developer gives an object to another but does not
+expect to get that object back. For example, a developer may get
+reassigned to a different project and therefore need to transfer
+responsibility for a collection of objects to another individual. </LI>
+</UL>
+
+Individuals manipulate objects through executing programs, referred to as
+<EM>clients</EM>. Individuals collaborate with each other by allowing the
+respective clients that they execute to collaborate. 
+
+<P>In our approach, collaboration is object-based. Support for cooperation
+is presented through a capability-based cooperative concurrency control
+mechanism. A client has to request a capability for an operation on an
+object before performing the operation. A client will not be granted the
+capability if the operation being requested <EM>conflicts</EM> with the
+operations on the same object for which capabilities are already held by
+other clients. To determine if there are conflicts, the cooperative
+concurrency control mechanism maintains two data structures that are
+associated with each object.</P>
+
+<P> One data structure is a conflicting operation matrix. Two operations
+on an object are defined to be <EM>conflicting</EM> if the order in which
+they are executed affects the state of the object or the return value of
+either operation. A conflicting operation matrix specifies whether one
+operation on an object belonging to a class conflicts with another
+operation on the same object.  This matrix can be used to support a simple
+read/write locking scheme or a more complex semantics-based locking
+scheme.</P>
+
+<P>A client, A, cooperates with another client, B, by allowing the
+cooperating client to concurrently perform conflicting operations on a
+shared object.  The second data structure represents these allowed
+conflicting operations on an object and is specified by clients through
+the use of <EM>cooperation declarations</EM>. A cooperation declaration
+made by client A, for a specific object, identifies: </P>
+
+<UL>
+<P> </P>
+
+<LI> The client(s) with whom client A wishes to cooperate </LI>
+
+<LI> The set of operations on the object that client A allows the
+cooperating clients to perform even if they conflict with client A's
+operations. </LI>
+
+<LI> Client A's role in the collaboration, which is one of
+<I>collaborator</I>, <I>loaner</I>, or <I>transferrer</I>. As a
+collaborator, client A can continue to perform all operations that it has
+capabilities for. As a loaner or transferrer, client A can only perform
+non-conflicting operations.  A loaner expects to get the objects back when
+the borrowing clients are done, whereas a transferrer does not.  </LI>
+
+</UL>
+
+Client B can now cooperate with client A by requesting a capability for
+the operations that client A specified in its cooperation declaration. A
+capability is granted to client B if:
+
+<UL>
+<P> </P>
+
+<LI> The request is for an operation on an object that does not conflict
+with any of that object's operations for which capabilities are held by
+other clients.  Conflicts are determined using the conflicting operation
+matrix for the class to which the object belongs. </LI>
+
+<LI> There are cooperation declarations from the owners of the conflicting
+capabilities allowing client B to perform the operation. </LI> </UL>
+
+<P>In the absence of collaboration, this mechanism reduces to a lock-based
+concurrency control mechanism, that would prevent two conflicting
+operations from being performed concurrently. If the conflicting operation
+matrix defines conflicts for only read and write operation, it reduces to
+standard read-write locking.</P>
+
+<P>If client A is a collaborator, client B acquires separate capabilities
+for the operations specified in the cooperation declaration. In this case,
+both client A and client B hold capabilities for those operations. If
+client A is a loaner or a transferrer, the capabilities held by client A
+for those operations are transferred to client B. If client A is a loaner,
+the capabilities are transferred back to client A when client B completes
+operations. If client A is a transferrer, the capabilities are released
+when client B completes it operations. </P>
+
+<P> Let's see how these primitives could be used to support the loan
+example from earlier. This example is described in terms of the people to
+make it easy to understand . This would, however, be implemented by making
+the respective client programs perform the operations attributed to
+people. Suppose Robin is designing class X and Pat is expected to review
+it. For simplicity, assume the class is represented as a single object and
+that standard reader/writer locking provides the default definition for
+concurrency control. Also, assume that there are currently no capabilities
+held on the object representing class X. In this case, Robin can acquire a
+capability to create/edit class X's design since there are no conflicting
+capabilities. While Robin is doing this, there can be no concurrent
+readers or writers of the design since they would conflict with the
+existing capability.  To give the design to Pat, Robin would make a
+cooperation declaration to loan the design to Pat for writing so that Pat
+could add review comments.  Now, Pat can get a write capability even
+though it conflicts with Robin's write capability.  Pat does the review
+and then returns the object which restores Robin's write capability. If
+Robin wanted to continue modifying the design while Pat was reviewing it,
+Robin would have used a co-author declaration instead of a loan
+declaration.  </P>
+
+<P> Most concurrency control mechanisms prevent concurrent access
+involving conflicting operations. Our approach provides a range of
+alternatives from one extreme where there is true
+concurrency/collaboration to more restricted forms of collaboration such
+as various forms of delegation. We would expect that one might build a
+layer on top of our mechanisms that hid these primitives and provided a
+more appropriate mechanism for a specific software engineering process. 
+For example, the concurrency control aspects of an advanced transaction
+mechanism could be built using these primitives, or a process could be
+defined in which a manager specified who was responsible for various
+activities with the capabilities being automatically created and delegated
+as the process executes.  What we have defined here are the primitive
+mechanisms that allow a wide range of cooperative concurrency control
+policies to be established. </P>
+
+</BODY>
+</HTML>
+
+
+

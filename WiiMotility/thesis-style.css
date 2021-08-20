@@ -1,0 +1,22 @@
+body {
+  font-family: Verdana, Geneva, Arial, helvetica, sans-serif;
+}
+
+td {
+	font-family: Verdana, Geneva, Arial, helvetica, sans-serif;
+}
+
+th {
+	font-family: Verdana, Geneva, Arial, helvetica, sans-serif;
+}
+
+h1 { text-align: center }
+	
+h2 { text-align: center }
+
+h3{ text-align: center}
+
+p.right {text-align:left}
+p.center {text-align:center}
+
+	
